@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     public float speed = 1.0f;
-    public bool isAcceleratable;
+    public bool isAcceleratable = true;
     void start()
     {
         Debug.Log("Player script attached to: " + gameObject.name);
@@ -29,9 +29,10 @@ public class Player : MonoBehaviour
             }
         }
         //中村
-        if(Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F))
         {
-            if(isAcceleratable == true){
+            if (isAcceleratable == true)
+            {
                 isAcceleratable = false;
                 StartCoroutine("SpeedUp");
             }
