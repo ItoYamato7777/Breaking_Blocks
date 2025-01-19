@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     void start()
     {
         Debug.Log("Player script attached to: " + gameObject.name);
-        isAcceleratable = true;
     }
     void Update()
     {
