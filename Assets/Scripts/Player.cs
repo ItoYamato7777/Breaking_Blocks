@@ -5,10 +5,11 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     public float speed = 1.0f;
+    public bool isAcceleratable;
     void start()
     {
         Debug.Log("Player script attached to: " + gameObject.name);
-
+        isAcceleratable = true;
     }
     void Update()
     {
@@ -28,9 +29,25 @@ public class Player : MonoBehaviour
             }
         }
         //中村
-        if (Input.GetKey(KeyCode.F))
+        if(Input.GetKey(KeyCode.F))
         {
-            speed *= 3.0;
+            if(isAcceleratable == true){
+                isAcceleratable = false;
+                StartCoroutine("SpeedUp");
+            }
         }
+    }
+
+    IEnumerator SpeedUp()
+    {
+        speed *= 3;
+        yield return new WaitForSeconds(3.0f);
+        speed /= 3;
+        StartCoroutine("CoolTime");
+    }
+    IEnumerator CoolTime()
+    {
+        yield return new WaitForSeconds(1.0f);
+        isAcceleratable = true;
     }
 }
