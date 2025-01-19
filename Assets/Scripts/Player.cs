@@ -27,5 +27,10 @@ public class Player : MonoBehaviour
                 this.transform.position += Vector3.right * speed * Time.deltaTime;
             }
         }
+        //中村
+        if (Input.GetKey(KeyCode.F))
+        {
+            speed *= 3.0;
+        }
     }
 }
