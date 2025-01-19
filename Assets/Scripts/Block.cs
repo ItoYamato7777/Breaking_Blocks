@@ -32,6 +32,7 @@ public class Block : MonoBehaviour
     IEnumerator Effecter() {
         destroy = true;
         this.GetComponent<BoxCollider>().isTrigger = true;
+        this.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(1.0f);
         Destroy(this.gameObject);
     }
